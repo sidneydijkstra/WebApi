@@ -81,7 +81,15 @@ public class AuthenticationManager : IAuthenticationService {
             };
         }
 
-        AuthenticationUser newUser = new AuthenticationUser() { Email = request.Email, UserName = request.Email, roles_ = new List<String>() { _rolesConfig.Default } };
+        // create a new user
+        AuthenticationUser newUser = new AuthenticationUser() { 
+            Email = request.Email, 
+            UserName = request.Email, 
+            roles = _rolesConfig.Default, 
+            disabled = false, 
+            createDate = DateTime.UtcNow 
+        };
+
         var userCreated = await _userManager.CreateAsync(newUser, request.Password);
         if (userCreated.Succeeded){
             return await GenerateJwtToken(newUser);
@@ -176,6 +184,25 @@ public class AuthenticationManager : IAuthenticationService {
             return await _userManager.FindByEmailAsync(email);
         }
         return null;
+    }
+
+    public UserListResponse getUsers(){
+        List<SecureUser> users = new List<SecureUser>();
+
+        foreach(var user in _userManager.Users){
+            users.Add(new SecureUser(){
+                id = user.Id,
+                username = user.UserName,
+                email = user.Email,
+                roles = user.roles,
+                disabled = user.disabled,
+                createDate = user.createDate
+            });
+        }
+
+        return new UserListResponse(){
+            users = users
+        };
     }
 
     

@@ -44,6 +44,8 @@ public interface IAuthenticationService {
     /// <returns>Returns a AuthenticationUser object.</returns>
     Task<AuthenticationUser> getUser(ClaimsPrincipal user);
 
+    UserListResponse getUsers();
+    
     /// <summary>
     /// This is a theaded method used to implement the generate a JwtToken function.
     /// It wil generate a new JwtToken.

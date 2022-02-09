@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Models.Authentication;
-public class AuthenticationUser : IdentityUser
-{
+
+public class AuthenticationUser : IdentityUser{
 
     [NotMapped]
     public List<string> roles_ { get; set; } = new List<string>();
@@ -14,4 +14,10 @@ public class AuthenticationUser : IdentityUser
         get { return String.Join(',', roles_); }
         set { roles_ = value.Split(',').ToList(); }
     }
+
+    [Required]
+    public bool disabled {get; set;} = false;
+
+    [Required]
+    public DateTime createDate {get; set;} = DateTime.UtcNow;
 }

@@ -3,6 +3,7 @@ using System;
 using Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ControllerApi.Migrations
 {
     [DbContext(typeof(APIDatabaseContext))]
-    partial class APIDatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20220209201323_AddedDisabled")]
+    partial class AddedDisabled
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -261,9 +263,6 @@ namespace ControllerApi.Migrations
             modelBuilder.Entity("Models.Authentication.AuthenticationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.Property<DateTime>("createDate")
-                        .HasColumnType("datetime(6)");
 
                     b.Property<bool>("disabled")
                         .HasColumnType("tinyint(1)");
