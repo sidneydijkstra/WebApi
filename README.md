@@ -8,13 +8,13 @@ For this Api to work correctly there are a couple dependencies needed. Like a st
   
 Generating the JwtToken is also done with a package by Microsoft called [JwtBearer](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.authentication.jwtbearer?view=aspnetcore-6.0). This package is great for generating these tokens and has lots of options to get it up to standards.  
 ```
-> Microsoft.AspNetCore.Authentication.JwtBearer 6.0.1 6.0.1  
-> Microsoft.AspNetCore.Identity.EntityFrameworkCore 6.0.1 6.0.1  
-> Microsoft.AspNetCore.Identity.UI 6.0.1 6.0.1  
-> Microsoft.EntityFrameworkCore.Design 6.0.1 6.0.1  
-> Microsoft.EntityFrameworkCore.SqlServer 6.0.1 6.0.1  
-> Pomelo.EntityFrameworkCore.MySql 6.0.1 6.0.1  
-> Swashbuckle.AspNetCore 6.2.3 6.2.3  
+> Microsoft.AspNetCore.Authentication.JwtBearer 							6.0.1 6.0.1  
+> Microsoft.AspNetCore.Identity.EntityFrameworkCore 						6.0.1 6.0.1  
+> Microsoft.AspNetCore.Identity.UI 											6.0.1 6.0.1  
+> Microsoft.EntityFrameworkCore.Design 										6.0.1 6.0.1  
+> Microsoft.EntityFrameworkCore.SqlServer 									6.0.1 6.0.1  
+> Pomelo.EntityFrameworkCore.MySql 											6.0.1 6.0.1  
+> Swashbuckle.AspNetCore 													6.2.3 6.2.3  
 ```  
 Visual Studio and Visual Code have options to automatically install these packages.  
   
